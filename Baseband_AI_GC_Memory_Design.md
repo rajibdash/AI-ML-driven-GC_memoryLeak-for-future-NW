@@ -1,11 +1,15 @@
-# Architecture Design: Real-Time AI Agent for Baseband GC and Memory Leak Control in RAN network (a thought for embedding intelligence future network)
-# Author: Rajib Kumar Dash
-# Motivation: Leveraging AI/ML perspective of memory leak control in operational network to increase performance.(maybe one offering for operator)
+# AI/ML perspective of Baseband GC and Memory Leak Control
+* **Architecture Design**: Real-Time AI Agent for Baseband GC and Memory Leak Control in RAN network (a thought for embedding intelligence to future network)
+* **Author**: Rajib Kumar Dash
+* **Motivation**: By leveraging AI/ML perspective of real time memory leak control in operational network or node can increase RAN performance.(**Optional**)
+* **Disadvantage**: Maybe there will be Crtical __runtime__ disadvantages which led to reduce node performance as well. 
+  - Telemetry adds cache-line pollution and cache thrashing directly to the CPU's primary L1/L2 caches. Evicting high-priority Layer 1/Layer 2 radio packet descriptors to clear space for memory logging structures triggers an immediate, volatile spike in data-path pipeline latency.
+  - Also, Inter-processor communication (IPC) via hardware interrupts across CPU core boundaries introduces immediate bus contention. When the inference engine polls or writes status reports to shared SRAM, it consumes crossbar interconnect bandwidth, creating unpredictable microsecond-level stall barriers for concurrent data-plane memory buses.
+  - Hot-swapping causes immediate cold-start cache latency overhead. When the high-speed data plane is shifted to an entirely fresh, unprimed parallel arena, every
+subsequent memory access forces expensive L1/L2/L3 cache misses. Re-allocating and rebuilding the cache lines for the newly swapped arena introduces severe deterministic jitter that can temporarily breach subframe processing boundaries.
 
 ## 1. Executive Summary
-Modern Radio Access Networks (RAN) face strict deterministic requirements like performance. It is one step achievement for evolution of network gradually. 
-Virtualized and Open RAN (vRAN/O-RAN) architectures introduce dynamic memory management layers that risk performance degradation 
-due to non-deterministic Garbage Collection (GC) pauses and gradual memory leaks. 
+Modern Radio Access Networks (RAN) face strict deterministic requirements for high performance. Virtualized and Open RAN (vRAN/O-RAN) architectures introduce dynamic memory management layers that risk performance degradation due to non-deterministic Garbage Collection (GC) pauses and gradual memory leaks. 
 
 This document delivers a production-grade architecture design for an **AI Agent operating at the Baseband layer (Layer 1/Layer 2)** 
 to predict, mitigate, and control memory anomalies in real time operation without violating Hybrid Automatic Repeat Request (HARQ) deadlines ($< 4\text{ ms}$).
