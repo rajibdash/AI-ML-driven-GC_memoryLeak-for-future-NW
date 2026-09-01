@@ -1,10 +1,12 @@
-# Architecture Design Document: AI-Driven Root Cause Analysis for C++ Memory Leaks
-### Author: Rajib Kumar Dash
+## *Architecture Design Document*: AI-Driven Root Cause Analysis for C++ Memory Leaks
+### **Author**: Rajib Kumar Dash
+### **Motivation**: Leveraging AI/ML aspect is often referred to as AIOps or MLOps across layers to control memory leak and/or do RCA intelligently which remediates leaks at run time.
+### **Disadvantage**: Yes, there is disadvantages if the whole process took more than threshold target suppose threshold set 3 millisecond, and the whole memory leak controling proceduer would finish < 3ms, then we can achieve benefit from this intelligence and AI/ML OPs. Again, where this intelligence will be put and trigger/fire i.e., which layers. Physical layer (or L1) processing is too constrained and critical with data and signal processing. Need to think and consider carefully.
 
 ## 1. Executive Summary & Core Design
-The goal of this system is to establish and deploy an automated, closed-loop engineering pipeline that detects, pre-triages, analyzes, and fixes or remediates memory leaks in large-scale modern C++ applications od codebases. By combining structural code analysis with Machine Learning models and Generative AI, the platform acts as an autonomous site reliability and security engineer.
+The goal of this system is to establish and deploy an automated, closed-loop engineering pipeline that detects, pre-triages, analyzes, and fixes or remediates memory leaks in large-scale modern C++ applications or codebases. By combining structural code analysis with Machine Learning models and Generative AI, the platform acts as an autonomous site reliability and security engineer.
 
-By orchestrating traditional runtime sanitizers, dedicated Machine Learning classifiers, and local multi-agent LLM reasoning chains via a resilient messaging backplane, the platform shifts memory management verification completely left. The system operates entirely inside local infrastructure boundaries, ensuring that sensitive source code is never exposed to public third-party endpoints. Every proposed remediation is sandboxed, compiled, and dynamically verified before presenting a verified Pull Request to an engineer.
+By orchestrating traditional runtime memory sanitizers, dedicated Machine Learning classifiers, and local multi-agent LLM reasoning chains via a resilient messaging backplane, the platform shifts memory management verification completely left. The system operates entirely inside local infrastructure boundaries, ensuring that **sensitive source code is never exposed to public third-party endpoints**. Every proposed remediation is sandboxed, compiled, and dynamically verified before presenting a verified Pull Request to an engineer.
 
 ---
 
